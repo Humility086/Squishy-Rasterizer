@@ -155,11 +155,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Buffers\Vertex buffer.h" />
+    <ClInclude Include="src\Pipeline\Buffers\Vertex_buffer.h" />
     <ClInclude Include="src\Helpers\Simple_obj converter.h" />
     <ClInclude Include="src\main.h" />
     <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\Pipeline\Camera.h" />
+    <ClInclude Include="src\Pipeline\Clipper.h" />
     <ClInclude Include="src\Primitives\Model.h" />
+    <ClInclude Include="src\Primitives\Plane.h" />
     <ClInclude Include="src\Primitives\Triangle.h" />
     <ClInclude Include="src\Primitives\Veretx.h" />
     <ClInclude Include="src\Transformations\Model_world.h" />
@@ -167,12 +170,14 @@
     <ClInclude Include="Vendor\Humility\Squishy_obj.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Buffers\Vertex buffer.cpp" />
+    <ClCompile Include="src\Pipeline\Buffers\Vertex_buffer.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Pipeline\Camera.cpp" />
+    <ClCompile Include="src\Pipeline\Clipper.cpp" />
     <ClCompile Include="src\Primitives\Model.cpp" />
     <ClCompile Include="src\Primitives\Triangle.cpp" />
     <ClCompile Include="src\Primitives\Veretx.cpp" />

@@ -69,7 +69,7 @@ Vertex Vertex::operator=(Vertex&& other) noexcept
         m_position = std::move(other.m_position);
         m_normal = std::move(other.m_normal);
         m_texture_coord = std::move(other.m_texture_coord);
-        m - m_intensity = std::move(other.m_intensity);
+        m_intensity = std::move(other.m_intensity);
 
         other.m_position = glm::vec4(0.f);
         other.m_normal = glm::vec3(0.f);
