@@ -39,6 +39,12 @@
     <ClInclude Include="src\Primitives\Triangle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Buffers\Vertex buffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Transformations\Model_world.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\pch.cpp">
@@ -57,6 +63,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Primitives\Model.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Buffers\Vertex buffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Transformations\Model_world.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -8,9 +8,10 @@ int main(int argc, char* argv[])
 
 	Window win(width, height);
 
-	//auto cube = sqy_obj::load_obj_file("Media\\obj\\cube2.obj");
 	Model b_cube("Media\\obj\\cube2.obj");
-
+	b_cube.u_scale(3.f);
+	b_cube.translate(glm::vec3(0.f, 0.f, -15.f));
+	b_cube.rotate_in_place(45, glm::vec3(0.f, 1.f, 0.f));
 
 	//event handler
 	bool running = true;

@@ -155,16 +155,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Buffers\Vertex buffer.h" />
     <ClInclude Include="src\Helpers\Simple_obj converter.h" />
     <ClInclude Include="src\main.h" />
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="src\Primitives\Model.h" />
     <ClInclude Include="src\Primitives\Triangle.h" />
     <ClInclude Include="src\Primitives\Veretx.h" />
+    <ClInclude Include="src\Transformations\Model_world.h" />
     <ClInclude Include="src\Window\Window.h" />
     <ClInclude Include="Vendor\Humility\Squishy_obj.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Buffers\Vertex buffer.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -173,6 +176,7 @@
     <ClCompile Include="src\Primitives\Model.cpp" />
     <ClCompile Include="src\Primitives\Triangle.cpp" />
     <ClCompile Include="src\Primitives\Veretx.cpp" />
+    <ClCompile Include="src\Transformations\Model_world.cpp" />
     <ClCompile Include="src\Window\Window.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

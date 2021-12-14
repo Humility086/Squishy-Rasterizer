@@ -5,21 +5,23 @@
 //Constrcutors
 //============
 Vertex::Vertex() :
-    m_position{glm::vec4(0.f)}, m_normal{glm::vec3(0.f)}, m_texture_coord{glm::vec2(0.f)}
+    m_position{glm::vec4(0.f)}, m_normal{glm::vec3(0.f)}, m_texture_coord{glm::vec2(0.f)}, m_intensity{glm::vec4(1.f)}
 {
 }
 
 Vertex::Vertex(glm::vec3 pos, glm::vec3 norm, glm::vec2 text_coord) :
     m_position {glm::vec4(pos, 1.f)},
     m_normal {norm},
-    m_texture_coord {text_coord}
+    m_texture_coord {text_coord},
+    m_intensity {glm::vec4(1.f)}
 {
 }
 
 Vertex::Vertex(glm::vec4 pos, glm::vec3 norm, glm::vec2 text_coord) :
     m_position {pos},
     m_normal {norm},
-    m_texture_coord {text_coord}
+    m_texture_coord {text_coord},
+    m_intensity{ glm::vec4(1.f) }
 {
 }
 
@@ -29,7 +31,8 @@ Vertex::Vertex(glm::vec4 pos, glm::vec3 norm, glm::vec2 text_coord) :
 Vertex::Vertex(const Vertex& other) :
     m_position{other.m_position},
     m_normal{other.m_normal},
-    m_texture_coord{other.m_texture_coord}
+    m_texture_coord{ other.m_texture_coord },
+    m_intensity{ glm::vec4(1.f) }
 {
 }
 
@@ -66,10 +69,12 @@ Vertex Vertex::operator=(Vertex&& other) noexcept
         m_position = std::move(other.m_position);
         m_normal = std::move(other.m_normal);
         m_texture_coord = std::move(other.m_texture_coord);
+        m - m_intensity = std::move(other.m_intensity);
 
         other.m_position = glm::vec4(0.f);
         other.m_normal = glm::vec3(0.f);
         other.m_texture_coord = glm::vec2(0.f);
+        other.m_intensity = glm::vec4(1.f);
     }
     return *this;
 }
