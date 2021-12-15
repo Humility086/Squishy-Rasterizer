@@ -11,6 +11,7 @@ int main(int argc, char* argv[])
 		52, width, height);
 	Vertex_buffer v_buffer;
 	Clipper clipper(v_buffer);
+	Rasterizer rasterizer(camera, clipper);
 
 	Model b_cube("Media\\obj\\cube2.obj");
 	v_buffer.add_model(b_cube);
@@ -21,6 +22,7 @@ int main(int argc, char* argv[])
 	v_buffer.apply_perspective_mat4(camera);
 
 	clipper.start_clip_chain(v_buffer);
+	rasterizer.start_pixel_processing(camera, clipper);
 
 	//event handler
 	bool running = true;

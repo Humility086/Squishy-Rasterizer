@@ -26,7 +26,7 @@ void Clipper::start_clip_chain(Vertex_buffer& source)
 	backface_cull();
 }
 
-//such a simple algorithm only works because we're banking on using .obj files
+//such a simple algorithm works because we're banking on using .obj files
 //and obj's preserve a CCW winding order.
 void Clipper::backface_cull()
 {
