@@ -4,4 +4,3 @@
 #include "Pipeline/Camera.h"
 #include "Pipeline/Buffers/Vertex_buffer.h"
 #include "Pipeline/Clipper.h"
-#include "Pipeline/Rasterizer.h"

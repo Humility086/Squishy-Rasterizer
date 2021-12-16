@@ -54,7 +54,7 @@
     <ClInclude Include="src\Pipeline\Clipper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Pipeline\Rasterizer.h">
+    <ClInclude Include="src\Primitives\Material.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -87,9 +87,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Pipeline\Clipper.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Pipeline\Rasterizer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

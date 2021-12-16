@@ -2,6 +2,7 @@
 #include "..\pch.h"
 #include "Veretx.h"
 #include "Triangle_map.h"
+#include "Material.h"
 #include "..\Helpers\Simple_obj converter.h"
 #include "..\Transformations\Model_world.h"
 
@@ -14,6 +15,7 @@ class Model
 public:
 	std::vector<Vertex> m_verticies; //why?: contigious and expandable. Can always not render culled verts.
 	std::list<Triangle_map> m_triangle_maps; //why? easy deletions in middle when culling/clipping.
+	std::vector<Material> m_materials;
 	
 	//Bounding sphere
 	glm::vec4 center;
