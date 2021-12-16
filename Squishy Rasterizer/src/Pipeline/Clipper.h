@@ -6,7 +6,7 @@
 class Clipper
 {
 private: 
-	std::vector<Model> m_clipspace;
+	std::vector<Model>& m_clipspace;
 
 public:
 	Clipper() = delete;

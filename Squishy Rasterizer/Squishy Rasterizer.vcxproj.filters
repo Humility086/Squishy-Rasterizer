@@ -36,7 +36,7 @@
     <ClInclude Include="src\Primitives\Model.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Primitives\Triangle.h">
+    <ClInclude Include="src\Primitives\Triangle_map.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Pipeline\Buffers\Vertex_buffer.h">
@@ -71,7 +71,7 @@
     <ClCompile Include="src\Primitives\Veretx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Primitives\Triangle.cpp">
+    <ClCompile Include="src\Primitives\Triangle_map.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Primitives\Model.cpp">

@@ -9,7 +9,7 @@ Model::Model(const char filepath[])
 
 Model::Model(const Model& other) :
 	m_verticies {other.m_verticies},
-	m_triangles {other.m_triangles}
+	m_triangle_maps {other.m_triangle_maps}
 {
 }
 
@@ -18,7 +18,7 @@ Model Model::operator=(const Model& other)
 	if (this != &other)
 	{
 		m_verticies = other.m_verticies;
-		m_triangles = other.m_triangles;
+		m_triangle_maps = other.m_triangle_maps;
 	}
 	return *this;
 }
@@ -33,10 +33,10 @@ Model Model::operator=(Model&& other) noexcept
 	if (this != &other)
 	{
 		m_verticies = std::move(other.m_verticies);
-		m_triangles = std::move(other.m_triangles);
+		m_triangle_maps = std::move(other.m_triangle_maps);
 
 		other.m_verticies.clear();
-		other.m_triangles.clear();
+		other.m_triangle_maps.clear();
 	}
 	return *this;
 }
@@ -162,8 +162,8 @@ void Model::build_model(const char filepath[])
 	}
 	for (auto& a : sqy_mesh.m_face_mapping)
 	{
-		Triangle temp(a.indicies[0], a.indicies[1], a.indicies[2]);
-		this->m_triangles.push_back(temp);
+		Triangle_map temp(a.indicies[0], a.indicies[1], a.indicies[2]);
+		this->m_triangle_maps.push_back(temp);
 	}
 }
 

@@ -3,7 +3,7 @@
 
 //constructors
 Clipper::Clipper(Vertex_buffer& source) :
-	m_clipspace {}
+	m_clipspace {source.m_v_buffer}
 {
 }
 
@@ -21,8 +21,8 @@ std::vector<Model>& Clipper::get_clipped_data()
 //member functions
 void Clipper::start_clip_chain(Vertex_buffer& source)
 {
-	m_clipspace.clear(); //don't forget to flush!
-	m_clipspace = source.get_buffer_data();
+	//m_clipspace.clear(); //don't forget to flush!
+	//m_clipspace = source.get_buffer_data();
 	backface_cull();
 }
 
@@ -32,7 +32,7 @@ void Clipper::backface_cull()
 {
 	for (auto& a : m_clipspace)
 	{
-		for (auto it = a.m_triangles.begin(); it != a.m_triangles.end();)
+		for (auto it = a.m_triangle_maps.begin(); it != a.m_triangle_maps.end();)
 		{
 			//Ok so this does look ugly - its the two edge vectors
 			//v1-v0 and v2-v0 - surface_norm is the x-product of the two.
@@ -48,7 +48,7 @@ void Clipper::backface_cull()
 			}
 			else
 			{
-				it = a.m_triangles.erase(it); //erase returns a pointer to the next element that needs to go back
+				it = a.m_triangle_maps.erase(it); //erase returns a pointer to the next element that needs to go back
 											//into our iterator	
 			}
 		}

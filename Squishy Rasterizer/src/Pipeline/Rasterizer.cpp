@@ -33,7 +33,7 @@ void Rasterizer::triangle_setup()
 {
 	for (auto& a : m_screen_buffer)
 	{
-		for (auto& b : a.m_triangles)
+		for (auto& b : a.m_triangle_maps)
 		{
 			const glm::vec3& v0 = glm::vec3(a.m_verticies[b.m_v0].m_position);
 			const glm::vec3& v1 = glm::vec3(a.m_verticies[b.m_v1].m_position);

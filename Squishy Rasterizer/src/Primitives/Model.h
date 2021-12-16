@@ -1,15 +1,19 @@
 #pragma once
 #include "..\pch.h"
 #include "Veretx.h"
-#include "Triangle.h"
+#include "Triangle_map.h"
 #include "..\Helpers\Simple_obj converter.h"
 #include "..\Transformations\Model_world.h"
+
+//Basically and indexed vertex list paradim...
+//m_verticies is a list of verticies..shocker I know
+//m_trinagle_maps is a container for the index of each vertex
 
 class Model
 {
 public:
 	std::vector<Vertex> m_verticies; //why?: contigious and expandable. Can always not render culled verts.
-	std::list<Triangle> m_triangles; //why? easy deletions in middle when culling/clipping.
+	std::list<Triangle_map> m_triangle_maps; //why? easy deletions in middle when culling/clipping.
 	
 	//Bounding sphere
 	glm::vec4 center;

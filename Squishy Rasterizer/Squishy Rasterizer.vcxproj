@@ -164,7 +164,7 @@
     <ClInclude Include="src\Pipeline\Rasterizer.h" />
     <ClInclude Include="src\Primitives\Model.h" />
     <ClInclude Include="src\Primitives\Plane.h" />
-    <ClInclude Include="src\Primitives\Triangle.h" />
+    <ClInclude Include="src\Primitives\Triangle_map.h" />
     <ClInclude Include="src\Primitives\Veretx.h" />
     <ClInclude Include="src\Transformations\Model_world.h" />
     <ClInclude Include="src\Window\Window.h" />
@@ -181,7 +181,7 @@
     <ClCompile Include="src\Pipeline\Clipper.cpp" />
     <ClCompile Include="src\Pipeline\Rasterizer.cpp" />
     <ClCompile Include="src\Primitives\Model.cpp" />
-    <ClCompile Include="src\Primitives\Triangle.cpp" />
+    <ClCompile Include="src\Primitives\Triangle_map.cpp" />
     <ClCompile Include="src\Primitives\Veretx.cpp" />
     <ClCompile Include="src\Transformations\Model_world.cpp" />
     <ClCompile Include="src\Window\Window.cpp" />

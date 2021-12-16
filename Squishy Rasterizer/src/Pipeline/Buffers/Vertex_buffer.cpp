@@ -9,10 +9,10 @@ Vertex_buffer::~Vertex_buffer()
 {
 }
 
-const std::vector<Model>& Vertex_buffer::get_buffer_data() const
-{
-	return m_v_buffer;
-}
+//std::vector<Model>& Vertex_buffer::get_buffer_data()
+//{
+//	return m_v_buffer;
+//}
 
 void Vertex_buffer::add_model(Model source)
 {
