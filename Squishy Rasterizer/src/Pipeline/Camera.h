@@ -20,7 +20,7 @@ public:
 	//constructors
 	Camera() = delete;
 	Camera(const glm::vec3 location, const glm::vec3 look_at, const glm::vec3 up_vector,
-		const float fov, const float width, const float height, const float near = 0.1f, const float far = 100.f);
+		const float fov, const float width, const float height, const float near = 1.0f, const float far = 100.f);
 	Camera(const Camera& other) = delete;
 
 	//member functions

@@ -13,7 +13,9 @@ int main(int argc, char* argv[])
 	Clipper clipper(v_buffer);
 
 	Model b_cube("Media\\obj\\cube2.obj");
+	//Model cottage("Media\\obj\\cottage.obj");
 	v_buffer.add_model(b_cube);
+	//v_buffer.add_model(cottage);
 	v_buffer.access_model(0).u_scale(3.0);
 	v_buffer.access_model(0).rotate_in_place(45, glm::vec3(0.f, 1.f, 0.f));
 	v_buffer.access_model(0).translate(glm::vec3(0.f, 0.f, -15.f));

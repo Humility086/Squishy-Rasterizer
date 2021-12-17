@@ -10,7 +10,9 @@ Model::Model(const char filepath[])
 Model::Model(const Model& other) :
 	m_verticies {other.m_verticies},
 	m_triangle_maps {other.m_triangle_maps},
-	m_materials {other.m_materials}
+	m_materials {other.m_materials},
+	center {other.center},
+	radius {other.radius}
 {
 }
 
@@ -21,6 +23,8 @@ Model Model::operator=(const Model& other)
 		m_verticies = other.m_verticies;
 		m_triangle_maps = other.m_triangle_maps;
 		m_materials = other.m_materials;
+		center = other.center;
+		radius = other.radius;
 	}
 	return *this;
 }
@@ -37,10 +41,14 @@ Model Model::operator=(Model&& other) noexcept
 		m_verticies = std::move(other.m_verticies);
 		m_triangle_maps = std::move(other.m_triangle_maps);
 		m_materials = std::move(other.m_materials);
+		center = std::move(other.center);
+		radius = std::move(other.radius);
 
 		other.m_verticies.clear();
 		other.m_triangle_maps.clear();
 		other.m_materials.clear();
+		other.center = glm::vec4(0.f);
+		other.radius = 0.f;
 	}
 	return *this;
 }
