@@ -12,6 +12,10 @@ int main(int argc, char* argv[])
 	Vertex_buffer v_buffer;
 	Clipper clipper(v_buffer);
 
+	Vertex v0( glm::vec3(0.f));
+	Vertex v1(glm::vec3(5.f, 8.f, -10.f));
+	Line_segment l01(v1, v1);
+
 	Model b_cube("Media\\obj\\cube2.obj");
 	//Model cottage("Media\\obj\\cottage.obj");
 	v_buffer.add_model(b_cube);

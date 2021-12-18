@@ -6,7 +6,7 @@
 class Clipper
 {
 private: 
-	std::vector<Model>& m_clipspace;
+	std::vector<Model> m_clipspace;
 
 public:
 	Clipper() = delete;
@@ -19,5 +19,4 @@ public:
 
 private:
 	void backface_cull(); //hidden surface removal
-	void generate_NDC_for_all_models();
 };

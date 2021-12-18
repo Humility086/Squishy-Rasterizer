@@ -16,10 +16,12 @@ private:
 
 public:
 	std::vector<Model> m_v_buffer; //thats why we have this
+	std::vector<Model> m_viewspace_uniforms; //viewspace data for lighting an z-value 1/z texturing
 	Vertex_buffer();
 	~Vertex_buffer();
 
-	//std::vector<Model>& get_buffer_data();
+	std::vector<Model>& get_buffer_data();
+	std::vector<Model>& get_view_space_data();
 	void add_model(Model source);
 	Model& access_model(uint16_t index);
 	void apply_view_matrix(const Camera& camera);

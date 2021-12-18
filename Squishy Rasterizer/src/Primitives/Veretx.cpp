@@ -32,7 +32,7 @@ Vertex::Vertex(const Vertex& other) :
     m_position{other.m_position},
     m_normal{other.m_normal},
     m_texture_coord{ other.m_texture_coord },
-    m_intensity{ glm::vec4(1.f) }
+    m_intensity{ other.m_intensity }
 {
 }
 
@@ -46,6 +46,7 @@ Vertex& Vertex::operator=(const Vertex& other)
         m_position = other.m_position;
         m_normal = other.m_normal;
         m_texture_coord = other.m_texture_coord;
+        m_intensity = other.m_intensity;
     }
     return *this;
 }

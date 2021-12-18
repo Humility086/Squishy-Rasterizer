@@ -9,10 +9,15 @@ Vertex_buffer::~Vertex_buffer()
 {
 }
 
-//std::vector<Model>& Vertex_buffer::get_buffer_data()
-//{
-//	return m_v_buffer;
-//}
+std::vector<Model>& Vertex_buffer::get_buffer_data()
+{
+	return m_v_buffer;
+}
+
+std::vector<Model>& Vertex_buffer::get_view_space_data()
+{
+	return m_viewspace_uniforms;
+}
 
 void Vertex_buffer::add_model(Model source)
 {
@@ -36,6 +41,7 @@ void Vertex_buffer::apply_view_matrix(const Camera& camera)
 			//b.m_normal = camera.get_view_normal_mat() * b.m_normal;
 		}
 	}
+	m_viewspace_uniforms = m_v_buffer;
 }
 
 void Vertex_buffer::apply_perspective_mat4(const Camera& camera)

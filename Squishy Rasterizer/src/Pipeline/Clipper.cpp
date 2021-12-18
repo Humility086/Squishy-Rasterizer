@@ -11,18 +11,17 @@ Clipper::~Clipper()
 {
 }
 
-//returns a vector of models AFTER the perspective divide is performed
+//returns a vector of model
 std::vector<Model>& Clipper::get_clipped_data()
 {
-	generate_NDC_for_all_models();
 	return m_clipspace;
 }
 
 //member functions
 void Clipper::start_clip_chain(Vertex_buffer& source)
 {
-	//m_clipspace.clear(); //don't forget to flush!
-	//m_clipspace = source.get_buffer_data();
+	m_clipspace.clear(); //don't forget to flush!
+	m_clipspace = source.get_buffer_data();
 	backface_cull();
 }
 
@@ -51,22 +50,6 @@ void Clipper::backface_cull()
 				it = a.m_triangle_maps.erase(it); //erase returns a pointer to the next element that needs to go back
 											//into our iterator	
 			}
-		}
-	}
-}
-
-
-//perspective divide
-void Clipper::generate_NDC_for_all_models()
-{
-	for (auto& a : m_clipspace)
-	{
-		for (auto& b : a.m_verticies)
-		{
-			b.m_position.x /= b.m_position.w;
-			b.m_position.y /= b.m_position.w;
-			b.m_position.z /= b.m_position.w;
-			b.m_position.w = 1.f;
 		}
 	}
 }
