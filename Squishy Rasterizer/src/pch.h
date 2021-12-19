@@ -29,3 +29,7 @@
 //Squishy simple obj
 //Self developed by yours truly, MIT license - https://github.com/Humility086/Squishy-simple-obj
 #include "..\Vendor\Humility\Squishy_obj.h"
+
+//stb_image
+//...
+#include "..\Vendor\stb_image\stb_image.h"

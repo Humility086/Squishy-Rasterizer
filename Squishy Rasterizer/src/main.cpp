@@ -13,10 +13,13 @@ int main(int argc, char* argv[])
 	Clipper clipper(v_buffer);
 	screen_mapper screen_map;
 
-	Model b_cube("Media\\obj\\cube2.obj");
+	Model b_cube("Media\\obj\\tree.obj");
 	v_buffer.add_model(b_cube);
-	v_buffer.access_model(0).u_scale(3.0);
-	v_buffer.access_model(0).translate(glm::vec3(0.f, 0.f, -15.f));
+	//v_buffer.add_model(b_cube);
+	v_buffer.access_model(0).u_scale(0.5);
+	v_buffer.access_model(0).translate(glm::vec3(0.f, -5.f, -15.f));
+	//v_buffer.access_model(1).u_scale(3.0);
+	//v_buffer.access_model(1).translate(glm::vec3(10.f, 0.f, -15.f));
 
 	//event handler
 	bool running = true;
@@ -37,6 +40,7 @@ int main(int argc, char* argv[])
 			}
 		}
 		v_buffer.access_model(0).rotate_in_place(0.5f, glm::vec3(0.f, 1.f, 0.f));
+		//v_buffer.access_model(1).rotate_in_place(-0.5f, glm::vec3(0.f, 1.f, 0.f));
 		//v_buffer.access_model(0).translate(glm::vec3(0.f, 0.f, -0.005f));
 		v_buffer.apply_view_matrix(camera);
 		v_buffer.apply_perspective_mat4(camera);
