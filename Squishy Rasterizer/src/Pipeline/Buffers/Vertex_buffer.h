@@ -20,8 +20,8 @@ public:
 	Vertex_buffer();
 	~Vertex_buffer();
 
-	std::vector<Model>& get_buffer_data();
-	std::vector<Model>& get_view_space_data();
+	const std::vector<Model>& get_buffer_data() const;
+	const std::vector<Model>& get_view_space_data() const;
 	void add_model(Model source);
 	Model& access_model(uint16_t index);
 	void apply_view_matrix(const Camera& camera);

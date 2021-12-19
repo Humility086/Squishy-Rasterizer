@@ -9,7 +9,7 @@ struct Vertex
 	glm::vec4 m_position;
 	glm::vec3 m_normal;
 	glm::vec2 m_texture_coord;
-	glm::vec4 m_intensity = glm::clamp(m_intensity, 0.f, 1.f);
+	glm::vec3 m_intensity = glm::clamp(m_intensity, 0.f, 1.f);
 	//============================
 	//Constructors and destructors
 	//============================

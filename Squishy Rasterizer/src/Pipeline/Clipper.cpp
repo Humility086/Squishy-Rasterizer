@@ -11,14 +11,14 @@ Clipper::~Clipper()
 {
 }
 
-//returns a vector of model
-std::vector<Model>& Clipper::get_clipped_data()
+//returns a vector of models
+const std::vector<Model> Clipper::get_clipped_data() const
 {
 	return m_clipspace;
 }
 
 //member functions
-void Clipper::start_clip_chain(Vertex_buffer& source)
+void Clipper::start_clip_chain(const Vertex_buffer& source)
 {
 	m_clipspace.clear(); //don't forget to flush!
 	m_clipspace = source.get_buffer_data();
@@ -40,7 +40,7 @@ void Clipper::backface_cull()
 				(glm::vec3(a.m_verticies[it->m_v2].m_position - a.m_verticies[it->m_v0].m_position)));
 			
 			float result = glm::dot(glm::vec3(0.f, 0.f, -1.f), surface_norm);
-			if (result < 0)
+			if (result <= 0.f)
 			{
 				++it;
 				continue;

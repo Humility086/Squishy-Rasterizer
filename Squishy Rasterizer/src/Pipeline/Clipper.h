@@ -14,8 +14,8 @@ public:
 	Clipper(const Clipper& other) = delete;
 	~Clipper();
 
-	std::vector<Model>& get_clipped_data();
-	void start_clip_chain(Vertex_buffer& source);
+	const std::vector<Model> get_clipped_data() const;
+	void start_clip_chain(const Vertex_buffer& source);
 
 private:
 	void backface_cull(); //hidden surface removal

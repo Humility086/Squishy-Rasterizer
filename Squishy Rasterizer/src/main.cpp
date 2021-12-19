@@ -3,30 +3,20 @@
 
 int main(int argc, char* argv[])
 {
-	constexpr uint16_t width = 1024;
-	constexpr uint16_t height = 768;
+	constexpr uint16_t width = 1280;
+	constexpr uint16_t height = 720;
 
 	Window win(width, height);
 	Camera camera(glm::vec3(0.f,0.f,1.f), glm::vec3(0.f), glm::vec3(0.f, 1.f, 0.f),
 		52, width, height);
 	Vertex_buffer v_buffer;
 	Clipper clipper(v_buffer);
-
-	Vertex v0( glm::vec3(0.f));
-	Vertex v1(glm::vec3(5.f, 8.f, -10.f));
-	Line_segment l01(v1, v1);
+	screen_mapper screen_map;
 
 	Model b_cube("Media\\obj\\cube2.obj");
-	//Model cottage("Media\\obj\\cottage.obj");
 	v_buffer.add_model(b_cube);
-	//v_buffer.add_model(cottage);
 	v_buffer.access_model(0).u_scale(3.0);
-	v_buffer.access_model(0).rotate_in_place(45, glm::vec3(0.f, 1.f, 0.f));
 	v_buffer.access_model(0).translate(glm::vec3(0.f, 0.f, -15.f));
-	v_buffer.apply_view_matrix(camera);
-	v_buffer.apply_perspective_mat4(camera);
-
-	clipper.start_clip_chain(v_buffer);
 
 	//event handler
 	bool running = true;
@@ -46,7 +36,15 @@ int main(int argc, char* argv[])
 				break;
 			}
 		}
-		win.display_test();
+		v_buffer.access_model(0).rotate_in_place(0.5f, glm::vec3(0.f, 1.f, 0.f));
+		//v_buffer.access_model(0).translate(glm::vec3(0.f, 0.f, -0.005f));
+		v_buffer.apply_view_matrix(camera);
+		v_buffer.apply_perspective_mat4(camera);
+
+		clipper.start_clip_chain(v_buffer);
+		screen_map.update_state(clipper, camera);
+
+		win.draw(screen_map.get_fragments());
 		win.present();
 		win.clear();
 	}

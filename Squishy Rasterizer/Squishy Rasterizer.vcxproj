@@ -162,6 +162,7 @@
     <ClInclude Include="src\Pipeline\Camera.h" />
     <ClInclude Include="src\Pipeline\Clipper.h" />
     <ClInclude Include="src\Pipeline\Screen_mapper.h" />
+    <ClInclude Include="src\Primitives\Fragment.h" />
     <ClInclude Include="src\Primitives\Line_segment.h" />
     <ClInclude Include="src\Primitives\Material.h" />
     <ClInclude Include="src\Primitives\Model.h" />
@@ -169,6 +170,7 @@
     <ClInclude Include="src\Primitives\Triangle.h" />
     <ClInclude Include="src\Primitives\Triangle_map.h" />
     <ClInclude Include="src\Primitives\Veretx.h" />
+    <ClInclude Include="src\Rasterizer\Model2D.h" />
     <ClInclude Include="src\Transformations\Model_world.h" />
     <ClInclude Include="src\Window\Window.h" />
     <ClInclude Include="Vendor\Humility\Squishy_obj.h" />
@@ -182,8 +184,10 @@
     </ClCompile>
     <ClCompile Include="src\Pipeline\Camera.cpp" />
     <ClCompile Include="src\Pipeline\Clipper.cpp" />
+    <ClCompile Include="src\Pipeline\Screen_mapper.cpp" />
     <ClCompile Include="src\Primitives\Line_segment.cpp" />
     <ClCompile Include="src\Primitives\Model.cpp" />
+    <ClCompile Include="src\Primitives\Triangle.cpp" />
     <ClCompile Include="src\Primitives\Triangle_map.cpp" />
     <ClCompile Include="src\Primitives\Veretx.cpp" />
     <ClCompile Include="src\Transformations\Model_world.cpp" />

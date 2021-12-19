@@ -1,16 +1,21 @@
 #pragma once
 #include "..\pch.h"
-#include "Veretx.h"
+#include "Fragment.h"
 
 class Line_segment
 {
 public:
-	const Vertex& m_origin, m_end;
-	std::vector<Vertex>m_line_points;
+	Fragment m_origin, m_end;
+	std::vector<Fragment>m_line_points;
 
-	Line_segment() = delete;
-	Line_segment(const Vertex& start, const Vertex& end);
+	Line_segment();
+	Line_segment(const Fragment& start, const Fragment& end);
 	~Line_segment();
+
+	Line_segment(const Line_segment& other);
+	Line_segment operator=(const Line_segment& other);
+	Line_segment(Line_segment&& other);
+	Line_segment operator=(Line_segment&& other) noexcept;
 
 private:
 	void plot_line();

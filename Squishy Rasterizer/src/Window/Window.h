@@ -1,6 +1,7 @@
 #pragma once
 #include <SDL.h>
 #include <iostream>
+#include "..\Primitives\Fragment.h"
 
 class Window
 {
@@ -23,4 +24,6 @@ public:
 	void present();
 	void display_test();
 	void clear();
+
+	void draw(const std::vector<Fragment>& pixel_stream);
 };

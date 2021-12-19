@@ -9,12 +9,12 @@ Vertex_buffer::~Vertex_buffer()
 {
 }
 
-std::vector<Model>& Vertex_buffer::get_buffer_data()
+const std::vector<Model>& Vertex_buffer::get_buffer_data() const
 {
 	return m_v_buffer;
 }
 
-std::vector<Model>& Vertex_buffer::get_view_space_data()
+const std::vector<Model>& Vertex_buffer::get_view_space_data() const
 {
 	return m_viewspace_uniforms;
 }

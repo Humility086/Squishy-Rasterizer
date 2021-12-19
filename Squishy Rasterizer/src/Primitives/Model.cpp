@@ -112,6 +112,7 @@ void Model::translate(const glm::vec3 displacement)
 	{
 		a.m_position = tfm::translate(displacement) * a.m_position;
 	}
+	update_bounding_sphere();
 }
 
 void Model::update_bounding_sphere()

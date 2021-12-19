@@ -53,3 +53,28 @@ void Window::clear()
 	SDL_SetRenderDrawColor(m_renderer, 0.f, 0.f, 0.f, 255.f);
 	SDL_RenderClear(m_renderer);
 }
+
+void Window::draw(const std::vector<Fragment>& pixel_stream)
+{
+	unsigned char* locked_pixels = nullptr;
+	int pitch = 0;
+	SDL_LockTexture(m_texture, NULL, reinterpret_cast<void**>(&locked_pixels), &pitch);
+
+	std::vector<unsigned char>pixels(pitch * m_height, 0);
+	for (auto& a : pixel_stream)
+	{
+		unsigned int x = a.m_position.x;
+		unsigned int y = a.m_position.y;
+
+		const unsigned int offset = (pitch * y) + (x * 4);
+
+		pixels[offset] = a.m_color.a;
+		pixels[offset + 1] = a.m_color.b;
+		pixels[offset + 2] = a.m_color.g;
+		pixels[offset + 3] = a.m_color.r;
+	}
+
+	std::memcpy(locked_pixels, pixels.data(), pixels.size());
+	SDL_UnlockTexture(m_texture);
+	SDL_RenderCopy(m_renderer, m_texture, NULL, NULL);
+}

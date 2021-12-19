@@ -1,17 +1,52 @@
 #include "pch.h"
 #include "Line_segment.h"
 
-Line_segment::Line_segment(const Vertex& start, const Vertex& end) :
+Line_segment::Line_segment()
+{
+}
+
+Line_segment::Line_segment(const Fragment& start, const Fragment& end) :
 	m_origin {start}, m_end {end}
 {
 	auto temp = m_end.m_position - m_origin.m_position;
 	uint32_t delta = std::max({ glm::abs(temp.x), glm::abs(temp.y), glm::abs(temp.z) });
-	m_line_points.reserve(delta + 1);
+	m_line_points.reserve(static_cast<std::vector<Vertex, std::allocator<Vertex>>::size_type>(delta) + 1);
 	plot_line();
 }
 
 Line_segment::~Line_segment()
 {
+}
+
+Line_segment::Line_segment(const Line_segment& other) :
+	m_origin {other.m_origin}, m_end {other.m_end}, m_line_points {other.m_line_points}
+{
+}
+
+Line_segment Line_segment::operator=(const Line_segment& other)
+{
+	m_origin = other.m_origin;
+	m_end = other.m_end;
+	m_line_points = other.m_line_points;
+
+	return *this;
+}
+
+Line_segment::Line_segment(Line_segment&& other)
+{
+	*this = std::move(other);
+}
+
+Line_segment Line_segment::operator=(Line_segment&& other) noexcept
+{
+	if (this != &other)
+	{
+		m_origin = std::move(other.m_origin);
+		m_end = std::move(other.m_end);
+		m_line_points = std::move(other.m_line_points);
+	}
+
+	return *this;
 }
 
 void Line_segment::plot_line()
@@ -30,7 +65,7 @@ void Line_segment::plot_line()
 
 	if (dx >= dy && dx >= dz)
 	{
-		m_line_points.push_back(start);
+		m_line_points.push_back(m_origin);
 		float y = start.y;
 		float z = start.z;
 		float y_error = (2 * dy) - dx;
@@ -66,7 +101,7 @@ void Line_segment::plot_line()
 
 	if (dy > dx && dy >= dz)
 	{
-		m_line_points.push_back(start);
+		m_line_points.push_back(m_origin);
 		float x = start.x;
 		float z = start.z;
 		float x_error = (2 * dx) - dy;
@@ -101,7 +136,7 @@ void Line_segment::plot_line()
 	}
 	else
 	{
-		m_line_points.push_back(start);
+		m_line_points.push_back(m_origin);
 		float x = start.x;
 		float y = start.y;
 		float x_error = (2 * dx) - dz;

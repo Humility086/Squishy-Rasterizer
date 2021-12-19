@@ -1,15 +1,26 @@
 #pragma once
 #include "..\pch.h"
-#include "Veretx.h"
+#include "Fragment.h"
+#include "Line_segment.h"
 
-struct Triangle
+class Triangle
 {
-	Vertex m_tv0, m_tv1, m_tv2;
-	glm::vec3 m_surface_normal;
+public:
+	Fragment *m_tf0, *m_tf1, *m_tf2;
+	Line_segment m_l01, m_l12, m_l20;
+	//glm::vec3 m_surface_normal;
 	
-	Triangle();
-	Triangle(Vertex v0, Vertex v1, Vertex v2);
+	Triangle() =  delete;
+	Triangle(Fragment v0, Fragment v1, Fragment v2);
 	~Triangle();
 
+	Triangle(const Triangle& other);
+	Triangle operator=(const Triangle& other);
+	Triangle(Triangle&& other)noexcept;
+	Triangle operator=(Triangle&& other)noexcept;
+
+	std::vector<Fragment> return_edges();
+
+private:
 	void calculate_surface_normal();
 };
